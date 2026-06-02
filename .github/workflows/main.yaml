@@ -1,0 +1,37 @@
+name: Deploy Static Files to VPS
+
+# 触发条件：当 main 分支有 push 时触发
+on:
+  push:
+    branches:
+      - main
+    workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: 拉取仓库代码
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # Step 2: 通过 SCP 将文件传输到 VPS
+      - name: Upload to VPS via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }} # 默认 22 端口，如果是其他端口可以在 Secrets 中配置
+
+          # source: 要上传的本地文件或目录
+          source: "index,nginx"
+
+          # target: VPS 上的目标路径（即你 Nginx/Apache 指向的目录）
+          target: "/var/www/bever"
+
+          strip_components: 0
