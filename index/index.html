@@ -206,6 +206,97 @@
             line-height: 1.7;
         }
 
+        /* Product Section */
+        .product {
+            padding: 100px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #f0eaff 0%, #eef2ff 100%);
+            border-radius: 24px;
+            padding: 64px 48px;
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .product-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 28px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .product-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: white;
+        }
+
+        .product-card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        .product-desc {
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .product-desc strong {
+            color: #6366f1;
+        }
+
+        .product-btn {
+            display: inline-block;
+            padding: 14px 44px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.35);
+        }
+
+        .product-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .product-btn:active {
+            transform: translateY(0);
+        }
+
         /* About Section */
         .about {
             padding: 100px 24px;
@@ -297,6 +388,26 @@
                 <h3>精彩记录</h3>
                 <p>帮助每一位用户捕捉和珍藏生活中的美好瞬间，让精彩永不褪色</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Product -->
+    <section class="product">
+        <div class="product-card">
+            <div class="product-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                    <path d="M14 2v6h6" fill="none" stroke="#fff" stroke-width="1.5"/>
+                    <path d="M9 15l2 2 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>在线视频转换</h2>
+            <p class="product-desc">
+                支持 <strong>MP4、AVI、MOV、MKV、WMV、FLV</strong> 等多种常见格式互转，
+                无需安装任何软件，<strong>浏览器上传即可完成</strong>。
+                智能保持原始画质，高效编码压缩，轻松控制文件大小。
+            </p>
+            <a href="/bconvert" class="product-btn">开始使用</a>
         </div>
     </section>
 
