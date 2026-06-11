@@ -1,0 +1,12 @@
+services:
+  deploy:
+    container_name: beverweb-deploy
+    build: ./deploy
+    environment:
+      - VPS_HOST=${VPS_HOST}
+      - VPS_PORT=${VPS_PORT:-22}
+      - VPS_USER=${VPS_USER}
+    volumes:
+      - ./index:/app/index:ro
+      - ./nginx:/app/nginx:ro
+      - ${VPS_SSH_KEY:-./deploy/id_rsa}:/root/.ssh/id_rsa:ro
